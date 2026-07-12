@@ -193,28 +193,17 @@ RuleProviders:
 # 策略组
 proxy-groups:
   - {
-      name: 游戏选择,
+      name: 全球节点选择,
       type: select,
-      proxies:
-        [
-          PASS,
-          DIRECT,
-          香港策略,
-          台湾策略,
-          日本策略,
-          韩国策略,
-          新加坡策略,
-          美国策略,
-          英国策略,
-          法国策略,
-          德国策略,
-        ],
+      include-all-providers: true,
+      filter: *FilterAll,
     }
   - {
       name: AI,
       type: select,
       proxies:
         [
+          全球节点选择,
           香港策略,
           台湾策略,
           日本策略,
@@ -231,6 +220,7 @@ proxy-groups:
       type: select,
       proxies:
         [
+          全球节点选择,
           香港策略,
           台湾策略,
           日本策略,
@@ -247,6 +237,7 @@ proxy-groups:
       type: select,
       proxies:
         [
+          全球节点选择,
           香港策略,
           台湾策略,
           日本策略,
@@ -265,6 +256,7 @@ proxy-groups:
         [
           PASS,
           DIRECT,
+          全球节点选择,
           香港策略,
           台湾策略,
           日本策略,
@@ -281,6 +273,26 @@ proxy-groups:
       type: select,
       proxies:
         [
+          全球节点选择,
+          香港策略,
+          台湾策略,
+          日本策略,
+          韩国策略,
+          新加坡策略,
+          美国策略,
+          英国策略,
+          法国策略,
+          德国策略,
+        ],
+    }
+  - {
+      name: 游戏,
+      type: select,
+      proxies:
+        [
+          PASS,
+          DIRECT,
+          全球节点选择,
           香港策略,
           台湾策略,
           日本策略,
@@ -460,7 +472,7 @@ rules:
   - RULE-SET, TikTok, TikTok
   - RULE-SET, SpeedtestIntl, Speedtest国际
   - RULE-SET, PayPal, PayPal
-  - RULE-SET, Game, 游戏选择
+  - RULE-SET, Game, 游戏
   - RULE-SET, ESET_China, DIRECT
   - RULE-SET, Proxy, 兜底后备策略
   - GEOIP, CN, DIRECT
